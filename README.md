@@ -9,3 +9,10 @@ Image.ANTIALIAS -> Image.LANCZOS
 ANTIALIASの代わりにLANCZOSを使用。  
 ANTIALIASが追加された当初は、畳み込みに基づく唯一の高品質フィルタだった。ANTIALIASという名前はこれを反映したもの。  
 Pillow2.7.0からすべてのリサイズメソッドは畳み込みに基づいている。今後はすべてアンチエイリアス。後方互換性のために、LANCZOSの別名としてANTIALIASは残されていたが削除された。
+
+## PyTorch
+
+- No module named 'torch._six'
+
+修正前: from torch._six import inf  
+修正後: from torch import inf 
