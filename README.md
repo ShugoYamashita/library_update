@@ -12,7 +12,6 @@ Pillow2.7.0からすべてのリサイズメソッドは畳み込みに基づい
 
 ## PyTorch
 
-- No module named 'torch._six'
-
+- No module named 'torch._six'  
 修正前: from torch._six import inf  
 修正後: from torch import inf 
