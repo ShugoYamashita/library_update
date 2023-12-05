@@ -10,10 +10,16 @@ ANTIALIASの代わりにLANCZOSを使用。
 ANTIALIASが追加された当初は、畳み込みに基づく唯一の高品質フィルタだった。ANTIALIASという名前はこれを反映したもの。  
 Pillow2.7.0からすべてのリサイズメソッドは畳み込みに基づいている。今後はすべてアンチエイリアス。後方互換性のために、LANCZOSの別名としてANTIALIASは残されていたが削除された。
 
+- Resize(), RandomResizedCrop()などのantialiasのdefault値が変更される  
+  The default value of the antialias parameter of all the resizing transforms (Resize(), RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends.  
+  解決法: `antialias=False`を追加する  
+  ```transforms.Resize([128, 128], antialias=False)```  
+  https://pytorch.org/vision/stable/generated/torchvision.transforms.Resize.html  
+
 ## PyTorch
 
 - No module named 'torch._six'  
-修正前: from torch._six import inf  
+修正前: from torch._six import inf
 修正後: from torch import inf
 
 - torchvisionのpretrainedを使う場合、weights='IMAGENET1K_V1'を使う。  
